@@ -34,7 +34,7 @@ const {notificationData}=useSelector(state=>state.user)
       </div>
       
       <div className='w-full h-[60px] flex items-center justify-between container-padding glass-header relative z-10 fade-in-left'>
-        <img src={logo} alt="" className='w-[60px] hover-scale transition-transform duration-300 premium-glow'/>
+        <img src={logo} alt="" className='w-[60px] hover-scale transition-transform duration-300' style={{filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))'}} />
         <div className='relative z-[100] hover-scale cursor-pointer hover-bg rounded-lg p-2 neon-border' onClick={()=>setShowNotification(prev=>!prev)}>
           <FaRegHeart className='text-primary w-[20px] h-[20px] hover:text-blue-400 transition-colors duration-300'/>
           {notificationData?.length>0 && notificationData.some((noti)=>noti.isRead===false) && (

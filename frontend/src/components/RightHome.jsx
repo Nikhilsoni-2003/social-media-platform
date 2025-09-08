@@ -20,7 +20,7 @@ function RightHome() {
           Messages
         </h2>
       </div>
-      <div className='relative z-10'>
+      <div className='relative z-10 h-[calc(100vh-60px)] overflow-y-auto custom-scrollbar'>
         <Messages/>
       </div>
     </div>

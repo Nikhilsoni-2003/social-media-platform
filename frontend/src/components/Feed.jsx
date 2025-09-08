@@ -15,7 +15,7 @@ function Feed() {
   return (
     <div className='lg:w-[50%] w-full bg-primary min-h-[100vh] lg:h-[100vh] relative lg:overflow-y-auto custom-scrollbar'>
         <div className='w-full h-[60px] flex items-center justify-between container-padding lg:hidden glass-header'>
-              <img src={logo} alt="" className='w-[60px] hover-scale'/>
+              <img src={logo} alt="" className='w-[60px] hover-scale' style={{filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))'}} />
               <div className='flex items-center element-gap'>
             <div className='relative hover-scale hover-bg rounded-lg p-2' onClick={()=>navigate("/notifications")}>
                  <FaRegHeart className='text-primary w-[20px] h-[20px] hover:text-blue-400 transition-colors duration-300'/>
