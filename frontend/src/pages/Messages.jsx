@@ -19,11 +19,11 @@ const dispatch=useDispatch()
                       <h1 className='text-primary text-lg font-semibold'>Messages</h1>
                   </div>
 
-                  <div className='w-full flex element-gap justify-start items-center overflow-x-auto container-padding glass rounded-xl'>
+                  {/* <div className='w-full flex element-gap justify-start items-center overflow-x-auto container-padding glass rounded-xl'>
 {userData.following?.map((user,index)=>(
   (onlineUsers?.includes(user._id)) && <OnlineUser key={index} user={user}/>
 ))}
-                  </div>
+                  </div> */}
 
         <div className='w-full h-[100vh] bg-primary overflow-y-auto custom-scrollbar pb-16 md:pb-0 flex flex-col element-gap'>
 {prevChatUsers?.map((user,index)=>(

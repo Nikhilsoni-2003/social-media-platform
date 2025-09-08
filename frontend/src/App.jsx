@@ -27,7 +27,8 @@ import Notifications from './pages/Notifications'
 import { setNotificationData } from './redux/userSlice'
 import PWAInstallPrompt from './components/PWAInstallPrompt'
 import BottomNav from './components/BottomNav'
-export const serverUrl="https://social-media-platform-kws2.onrender.com"
+// export const serverUrl="https://social-media-platform-kws2.onrender.com"
+export const serverUrl="http://localhost:8000"
 function App() {
    getCurrentUser()
    getSuggestedUsers()
