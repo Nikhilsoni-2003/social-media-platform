@@ -5,7 +5,7 @@ import RightHome from '../components/RightHome'
 
 function Home() {
   return (
-    <div className='w-full min-h-[100vh] animated-bg particle-bg flex gpu-accelerated smooth-scroll'>
+    <div className='w-full min-h-[100vh] animated-bg particle-bg flex flex-col md:flex-row gpu-accelerated smooth-scroll'>
       <LeftHome />
       <Feed />
       <RightHome />

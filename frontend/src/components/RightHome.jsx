@@ -3,7 +3,7 @@ import Messages from '../pages/Messages'
 
 function RightHome() {
   return (
-    <div className='w-[25%] h-[100vh] glass-sidebar border-l border-primary hidden lg:block relative overflow-hidden'>
+    <div className='w-full md:w-[30%] lg:w-[25%] h-[100vh] glass-sidebar border-l border-primary hidden md:block relative overflow-hidden'>
       {/* Floating Message Bubbles Background Animation */}
       <div className='absolute inset-0 pointer-events-none'>
         <div className='absolute top-20 left-8 w-4 h-4 bg-blue-400 rounded-full message-bubble-1 opacity-10'></div>

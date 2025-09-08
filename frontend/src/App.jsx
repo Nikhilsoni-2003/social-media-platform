@@ -26,6 +26,7 @@ import getAllNotifications from './hooks/getAllNotifications'
 import Notifications from './pages/Notifications'
 import { setNotificationData } from './redux/userSlice'
 import PWAInstallPrompt from './components/PWAInstallPrompt'
+import BottomNav from './components/BottomNav'
 export const serverUrl="http://localhost:8000"
 function App() {
    getCurrentUser()
@@ -88,6 +89,7 @@ socket?.on("newNotification",(noti)=>{
             <Route path='/loops' element={userData?<Loops/>:<Navigate to={"/signin"}/>}/>
       </Routes>
       <PWAInstallPrompt />
+      {userData && <BottomNav />}
     </>
   )
 }

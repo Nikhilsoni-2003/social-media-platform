@@ -25,7 +25,7 @@ const {notificationData}=useSelector(state=>state.user)
 
 
   return (
-    <div className={`w-[25%] hidden lg:block h-[100vh] glass-sidebar border-r border-primary ${showNotification?"overflow-hidden":"overflow-auto custom-scrollbar"} relative overflow-hidden`}>
+    <div className={`w-full md:w-[30%] lg:w-[25%] hidden md:block h-[100vh] glass-sidebar border-r border-primary ${showNotification?"overflow-hidden":"overflow-auto custom-scrollbar"} relative overflow-hidden`}>
       {/* Subtle background animation */}
       <div className='absolute inset-0 pointer-events-none'>
         <div className='absolute top-16 right-4 w-2 h-2 bg-blue-400 rounded-full message-bubble-1 opacity-5'></div>

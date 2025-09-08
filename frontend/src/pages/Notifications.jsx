@@ -35,7 +35,7 @@ const fetchNotifications=async ()=>{
    
     },[])
   return (
-    <div className='w-full h-[100vh] bg-primary overflow-auto'>
+    <div className='w-full h-[100vh] bg-primary overflow-y-auto custom-scrollbar pb-16 md:pb-0'>
        <div className='w-full h-[70px] flex items-center element-gap container-padding lg:hidden glass'>
                       <MdOutlineKeyboardBackspace className='text-primary cursor-pointer w-[24px] h-[24px] hover-bg rounded-lg p-1' onClick={() => navigate(`/`)} />
                       <h1 className='text-primary text-lg font-semibold'>Notifications</h1>

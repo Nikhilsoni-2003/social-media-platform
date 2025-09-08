@@ -13,8 +13,8 @@ function Feed() {
      const {storyList,currentUserStory}=useSelector(state=>state.story)
      const navigate=useNavigate()
   return (
-    <div className='lg:w-[50%] w-full bg-primary min-h-[100vh] lg:h-[100vh] relative lg:overflow-y-auto custom-scrollbar'>
-        <div className='w-full h-[60px] flex items-center justify-between container-padding lg:hidden glass-header'>
+    <div className='w-full md:w-[40%] lg:w-[50%] bg-primary min-h-[100vh] md:h-[100vh] relative md:overflow-y-auto custom-scrollbar pb-16 md:pb-0'>
+        <div className='w-full h-[60px] flex items-center justify-between container-padding md:hidden glass-header'>
               <img src={logo} alt="" className='w-[60px] hover-scale' style={{filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))'}} />
               <div className='flex items-center element-gap'>
             <div className='relative hover-scale hover-bg rounded-lg p-2' onClick={()=>navigate("/notifications")}>
