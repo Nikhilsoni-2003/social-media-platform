@@ -14,7 +14,7 @@ dotenv.config()
 
 const port=process.env.PORT || 5000
 app.use(cors({
-    origin:["http://localhost:5173", "https://main.d1o7mnrhj60m.amplifyapp.com"],
+    origin:["http://localhost:5173", "https://main.d1o7mnrhj60m.amplifyapp.com", "https://social-media-platform-kws2.onrender.com"],
     credentials:true
 }))
 app.use(express.json())

@@ -6,7 +6,7 @@ const server=http.createServer(app)
 
 const io=new Server(server,{
     cors:{
-        origin:["http://localhost:5173", "https://main.d1o7mnrhj60m.amplifyapp.com"],
+        origin:["http://localhost:5173", "https://main.d1o7mnrhj60m.amplifyapp.com", "https://social-media-platform-kws2.onrender.com"],
         methods:["GET","POST"]
     }
 })
