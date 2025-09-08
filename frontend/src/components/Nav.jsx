@@ -17,4 +17,10 @@ function Nav() {
      <div onClick={()=>navigate("/upload")} className='hover-bg rounded-full p-2 cursor-pointer hover-lift'><FiPlusSquare className='text-primary w-[24px] h-[24px]'/></div>
      <div onClick={()=>navigate("/loops")} className='hover-bg rounded-full p-2 cursor-pointer hover-lift'><RxVideo className='text-primary w-[26px] h-[26px]'/></div>
      <div className='w-[40px] h-[40px] border-2 border-secondary rounded-full cursor-pointer overflow-hidden hover-scale pulse-animation' onClick={()=>navigate(`/profile/${userData.userName}`)}>
-         <img src={userData.profileImage || dp} alt="" className='w-full h-full 
+         <img src={userData.profileImage || dp} alt="" className='w-full h-full object-cover'/>
+     </div>
+    </div>
+  )
+}
+
+export default Nav

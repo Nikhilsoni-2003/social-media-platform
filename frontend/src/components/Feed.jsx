@@ -25,7 +25,11 @@ function Feed() {
               </div>
             </div>
 
-            <div className='flex w-full justify-start overflow-x-auto element-gap items-center container-padding custom-scrollbar py-2'>
+            <div className='flex w-full justify-start overflow-x-auto element-gap items-center container-padding custom-scrollbar py-2 relative'>
+              {/* Subtle floating elements in story section */}
+              <div className='absolute top-2 right-4 w-1 h-1 bg-blue-400 rounded-full message-bubble-1 opacity-10'></div>
+              <div className='absolute bottom-2 left-8 w-0.5 h-0.5 bg-purple-400 rounded-full message-bubble-2 opacity-15' style={{animationDelay: '2s'}}></div>
+              
 <StoryDp userName={"Your Story"} ProfileImage={userData.profileImage} story={currentUserStory}/>
 {storyList?.map((story,index)=>(
 <StoryDp userName={story.author.userName} ProfileImage={story.author.profileImage} story={story} key={index}/>

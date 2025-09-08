@@ -44,12 +44,12 @@ navigate(`/story/${userName}`)
   }
 }
   return (
-    <div className='flex flex-col w-[75px] hover-scale'>
-      <div className={`w-[70px] h-[70px] ${!story?'gradient-primary':!viewed?"gradient-success":"gradient-secondary"} rounded-full flex items-center justify-center relative hover-lift transition-all duration-300 cursor-pointer`}  onClick={handleClick}>
+    <div className='flex flex-col w-[75px] hover-scale fade-in-up'>
+      <div className={`w-[70px] h-[70px] ${!story?'gradient-primary':!viewed?"gradient-success":"gradient-secondary"} rounded-full flex items-center justify-center relative hover-lift transition-all duration-300 cursor-pointer gentle-glow`}  onClick={handleClick}>
       <div className='w-[60px] h-[60px] border-2 border-white rounded-full cursor-pointer overflow-hidden'>
           <img src={ProfileImage ||  dp} alt="" className='w-full h-full object-cover transition-transform duration-300 hover:scale-110'/>
           {!story && userName=="Your Story" && <div>
-       <FiPlusCircle className='text-blue-500 absolute bottom-[6px] bg-white right-[6px] rounded-full w-[20px] h-[20px] shadow-md hover:scale-110 transition-transform duration-300' />
+       <FiPlusCircle className='text-blue-500 absolute bottom-[6px] bg-white right-[6px] rounded-full w-[20px] h-[20px] shadow-md hover:scale-110 transition-transform duration-300 pulse-animation' />
             </div>}
                
       </div>
