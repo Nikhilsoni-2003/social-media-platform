@@ -5,10 +5,10 @@ import RightHome from '../components/RightHome'
 
 function Home() {
   return (
-    <div className='w-full flex bg-primary min-h-screen'>
-      <LeftHome/>
-      <Feed/>
-      <RightHome/>
+    <div className='w-full min-h-[100vh] animated-bg particle-bg flex gpu-accelerated smooth-scroll'>
+      <LeftHome />
+      <Feed />
+      <RightHome />
     </div>
   )
 }

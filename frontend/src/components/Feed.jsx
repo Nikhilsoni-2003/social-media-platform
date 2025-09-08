@@ -25,23 +25,30 @@ function Feed() {
               </div>
             </div>
 
-            <div className='flex w-full justify-start overflow-x-auto element-gap items-center container-padding custom-scrollbar py-2 relative'>
-              {/* Subtle floating elements in story section */}
+            <div className='flex w-full justify-start overflow-x-auto element-gap items-center container-padding custom-scrollbar py-2 relative gpu-accelerated'>
+              {/* Enhanced floating elements in story section */}
               <div className='absolute top-2 right-4 w-1 h-1 bg-blue-400 rounded-full message-bubble-1 opacity-10'></div>
               <div className='absolute bottom-2 left-8 w-0.5 h-0.5 bg-purple-400 rounded-full message-bubble-2 opacity-15' style={{animationDelay: '2s'}}></div>
+              <div className='absolute top-6 left-12 w-0.5 h-0.5 bg-pink-400 rounded-full message-bubble-3 opacity-12' style={{animationDelay: '4s'}}></div>
               
-<StoryDp userName={"Your Story"} ProfileImage={userData.profileImage} story={currentUserStory}/>
-{storyList?.map((story,index)=>(
-<StoryDp userName={story.author.userName} ProfileImage={story.author.profileImage} story={story} key={index}/>
-))}
+              <div className='stagger-1'>
+                <StoryDp userName={"Your Story"} ProfileImage={userData.profileImage} story={currentUserStory}/>
+              </div>
+              {storyList?.map((story,index)=>(
+                <div key={index} className={`stagger-${Math.min(index + 2, 4)}`}>
+                  <StoryDp userName={story.author.userName} ProfileImage={story.author.profileImage} story={story}/>
+                </div>
+              ))}
             </div>
 
-<div className='w-full min-h-[100vh] flex flex-col items-center element-gap container-padding pt-2 bg-secondary rounded-t-1xl relative pb-32 border-t border-primary'>
-<Nav/>
+<div className='w-full min-h-[100vh] flex flex-col items-center element-gap container-padding pt-2 animated-bg particle-bg rounded-t-1xl relative pb-32 border-t border-primary gpu-accelerated smooth-scroll'>
 {postData && postData.map((post,index)=>(
-  <Post post={post} key={index}/>
+  <div key={index} className={`fade-in-up stagger-${Math.min(index + 1, 4)}`}>
+    <Post post={post}/>
+  </div>
 ))}
 </div>
+<Nav/>
 
     </div>
   )

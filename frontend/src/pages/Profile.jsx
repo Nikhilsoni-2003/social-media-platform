@@ -121,8 +121,6 @@ function Profile() {
                         <div className={`${postType == "saved" ? "gradient-primary text-white" : "text-secondary hover:text-primary"} flex-1 h-10 flex justify-center items-center text-sm font-medium rounded-full cursor-pointer transition-all duration-300`} onClick={() => setPostType("saved")}>Saved</div>
                     </div>}
 
-                    <Nav />
-
 {profileData?._id==userData._id && <>
                    { postType=="posts" && postData.map((post,index)=>(
     post.author?._id==profileData?._id && <Post post={post}/>
@@ -138,10 +136,9 @@ function Profile() {
 ))
 }
 
-
-                    
                 </div>
             </div>
+            <Nav />
         </div>
     )
 }

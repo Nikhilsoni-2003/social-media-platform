@@ -33,9 +33,9 @@ const {notificationData}=useSelector(state=>state.user)
         <div className='absolute top-72 right-8 w-1.5 h-1.5 bg-green-400 rounded-full message-bubble-3 opacity-6' style={{animationDelay: '1.5s'}}></div>
       </div>
       
-      <div className='w-full h-[60px] flex items-center justify-between container-padding glass-header relative z-10'>
-        <img src={logo} alt="" className='w-[60px] hover-scale transition-transform duration-300 gentle-glow'/>
-        <div className='relative z-[100] hover-scale cursor-pointer hover-bg rounded-lg p-2' onClick={()=>setShowNotification(prev=>!prev)}>
+      <div className='w-full h-[60px] flex items-center justify-between container-padding glass-header relative z-10 fade-in-left'>
+        <img src={logo} alt="" className='w-[60px] hover-scale transition-transform duration-300 premium-glow'/>
+        <div className='relative z-[100] hover-scale cursor-pointer hover-bg rounded-lg p-2 neon-border' onClick={()=>setShowNotification(prev=>!prev)}>
           <FaRegHeart className='text-primary w-[20px] h-[20px] hover:text-blue-400 transition-colors duration-300'/>
           {notificationData?.length>0 && notificationData.some((noti)=>noti.isRead===false) && (
             <div className='w-[6px] h-[6px] bg-blue-500 rounded-full absolute top-1 right-1 pulse-animation'></div>

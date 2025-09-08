@@ -11,7 +11,7 @@ function Nav() {
   const navigate=useNavigate()
   const {userData}=useSelector(state=>state.user)
   return (
-    <div className='w-[90%] lg:w-[40%] h-[70px] glass flex justify-around items-center fixed bottom-4 rounded-full shadow-2xl z-[100] backdrop-blur-md gentle-glow'>
+    <div className='w-[90%] lg:w-[40%] h-[70px] glass flex justify-around items-center rounded-full shadow-2xl gentle-glow' style={{position: 'fixed', bottom: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 9999}}>
       <div onClick={()=>navigate("/")} className='hover-bg rounded-full p-2 cursor-pointer hover-lift'><GoHomeFill className='text-primary w-[24px] h-[24px]'/></div>
      <div onClick={()=>navigate("/search")} className='hover-bg rounded-full p-2 cursor-pointer hover-lift'><FiSearch className='text-primary w-[24px] h-[24px]'/></div>
      <div onClick={()=>navigate("/upload")} className='hover-bg rounded-full p-2 cursor-pointer hover-lift'><FiPlusSquare className='text-primary w-[24px] h-[24px]'/></div>
