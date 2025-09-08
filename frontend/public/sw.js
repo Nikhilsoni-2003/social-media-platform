@@ -20,6 +20,13 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve cached content when offline
 self.addEventListener('fetch', (event) => {
+  // Skip API calls and external requests
+  if (event.request.url.includes('/api/') || 
+      event.request.url.includes('social-media-platform') ||
+      event.request.url.startsWith('chrome-extension://')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -27,7 +34,12 @@ self.addEventListener('fetch', (event) => {
         if (response) {
           return response;
         }
-        return fetch(event.request);
+        return fetch(event.request).catch(() => {
+          // Return a fallback for navigation requests
+          if (event.request.mode === 'navigate') {
+            return caches.match('/');
+          }
+        });
       })
   );
 });
