@@ -2,11 +2,21 @@ import http from "http"
 import express from "express"
 import { Server } from "socket.io"
 const app=express()
+
+// Trust the Render/Reverse proxy so secure cookies aren't stripped
+app.set("trust proxy", 1)
+
 const server=http.createServer(app)
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://main.d1o7mnrhj60m.amplifyapp.com",
+    "https://social-media-platform-l27o.onrender.com"
+]
 
 const io=new Server(server,{
     cors:{
-        origin:["http://localhost:5173", "https://main.d1o7mnrhj60m.amplifyapp.com", "https://social-media-platform-kws2.onrender.com"],
+        origin:allowedOrigins,
         methods:["GET","POST"]
     }
 })
