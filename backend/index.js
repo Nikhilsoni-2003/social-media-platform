@@ -17,7 +17,7 @@ const port = process.env.PORT || 5000
 app.use(cors({
     origin: [
       "http://localhost:5173",
-      "https://main.d1o7mnrhj60m.amplifyapp.com",
+      "https://main.d2y0646fssclqf.amplifyapp.com",
       "https://social-media-platform-l27o.onrender.com"
     ],
     credentials: true,
