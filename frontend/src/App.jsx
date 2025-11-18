@@ -43,34 +43,44 @@ function App() {
     const {socket}=useSelector(state=>state.socket)
     const dispatch=useDispatch()
  useEffect(()=>{
-  if(userData){
-    const socketIo=io(`${serverUrl}`,{
-      query:{
-        userId:userData._id
-      }
-    })
-dispatch(setSocket(socketIo))
+  let socketIo
+ if(userData){
+   socketIo=io(`${serverUrl}`,{
+     query:{
+       userId:userData._id
+     }
+   })
+ dispatch(setSocket(socketIo))
 
 
-socketIo.on('getOnlineUsers',(users)=>{
-  dispatch(setOnlineUsers(users))
-  console.log(users)
-})
+ socketIo.on('getOnlineUsers',(users)=>{
+   dispatch(setOnlineUsers(users))
+   console.log(users)
+ })
 
 
-return ()=>socketIo.close()
-  }else{
-    if(socket){
-      socket.close()
-      dispatch(setSocket(null))
-    }
-  }
+ }else if(socket){
+     socket.close()
+     dispatch(setSocket(null))
+ }
+
+ return ()=>{
+  socketIo?.off('getOnlineUsers')
+  socketIo?.close()
+ }
  },[userData])
 
 
-socket?.on("newNotification",(noti)=>{
-  dispatch(setNotificationData([...notificationData,noti]))
-})
+ useEffect(()=>{
+  if(!socket)return
+  const handleNotification=(noti)=>{
+    dispatch(setNotificationData([...notificationData,noti]))
+  }
+  socket.on("newNotification",handleNotification)
+  return ()=>{
+    socket.off("newNotification",handleNotification)
+  }
+ },[socket,notificationData])
 
   return (
     <>
