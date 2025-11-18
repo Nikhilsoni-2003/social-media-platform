@@ -3,7 +3,10 @@ import genToken from "../config/token.js"
 import User from "../models/user.model.js"
 import bcrypt from "bcryptjs"
 
-const isProduction = process.env.NODE_ENV === "production"
+const isProduction =
+    process.env.NODE_ENV === "production" ||
+    process.env.RENDER === "true" ||
+    !!process.env.RENDER
 
 const baseCookieOptions = {
     httpOnly: true,
