@@ -21,7 +21,9 @@ function Feed() {
                  <FaRegHeart className='text-primary w-[20px] h-[20px] hover:text-blue-400 transition-colors duration-300'/>
                  {notificationData?.length>0 && notificationData.some((noti)=>noti.isRead===false) && (<div className='w-[6px] h-[6px] bg-blue-500 rounded-full absolute top-1 right-1 pulse-animation'></div>)}
                    </div>
-            <BiMessageAltDetail className='text-primary w-[20px] h-[20px] hover:text-green-400 transition-colors duration-300 hover-scale hover-bg rounded-lg p-2' onClick={()=>navigate("/messages")}/>
+            <div className='relative hover-scale hover-bg rounded-lg p-2' onClick={()=>navigate("/messages")}>
+              <BiMessageAltDetail className='text-primary w-[20px] h-[20px] hover:text-green-400 transition-colors duration-300'/>
+            </div>
               </div>
             </div>
 

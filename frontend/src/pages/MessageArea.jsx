@@ -46,6 +46,7 @@ const handleSendMessage=async (e)=>{
 }
 
 const getAllMessages=async ()=>{
+  if(!selectedUser) return
   try {
     const result=await axios.get(`${serverUrl}/api/message/getAll/${selectedUser._id}`,{withCredentials:true})
     dispatch(setMessages(result.data))
@@ -55,14 +56,18 @@ const getAllMessages=async ()=>{
 }
 useEffect(()=>{
 getAllMessages()
-},[])
+},[selectedUser?._id])
 
 useEffect(()=>{
-socket?.on("newMessage",(mess)=>{
+if(!socket) return
+const handleNewMessage=(mess)=>{
   dispatch(setMessages([...messages,mess]))
-})
-return ()=>socket?.off("newMessage")
-},[messages,setMessages])
+}
+socket.on("newMessage",handleNewMessage)
+return ()=>{
+  socket.off("newMessage",handleNewMessage)
+}
+},[socket,messages,dispatch])
 
   return (
     <div className='w-full h-[100vh] bg-black relative'>
@@ -85,8 +90,12 @@ return ()=>socket?.off("newMessage")
       </div>
 
       <div className='w-full h-[80%] pt-[100px]  px-[40px] flex flex-col gap-[50px] overflow-auto bg-black'>
-{messages && messages?.map((mess,index)=>
-  mess.sender==userData._id?<SenderMessage message={mess}/>:<ReceiverMessage message={mess}/>
+{messages && messages?.map((mess,index)=>{
+  const key=mess._id || `${mess.sender}-${mess.createdAt || index}-${index}`
+  return mess.sender==userData._id
+  ? <SenderMessage key={key} message={mess}/>
+  : <ReceiverMessage key={key} message={mess}/>
+}
 )}
       </div>
 

@@ -122,17 +122,23 @@ function Profile() {
                     </div>}
 
 {profileData?._id==userData._id && <>
-                   { postType=="posts" && postData.map((post,index)=>(
-    post.author?._id==profileData?._id && <Post post={post}/>
+                   { postType=="posts" && postData
+                   .filter((post)=>post.author?._id==profileData?._id)
+                   .map((post)=>(
+    <Post key={post._id} post={post}/>
 ))}
-{postType=="saved" && postData.map((post,index)=>(
-    userData.saved.includes(post._id) && <Post post={post}/>
+{postType=="saved" && postData
+.filter((post)=>userData.saved.includes(post._id))
+.map((post)=>(
+    <Post key={post._id} post={post}/>
 ))}
 </> 
 }
 {profileData?._id!=userData._id &&
-                   postData.map((post,index)=>(
-    post.author?._id==profileData?._id && <Post post={post}/>
+                   postData
+                   .filter((post)=>post.author?._id==profileData?._id)
+                   .map((post)=>(
+    <Post key={post._id} post={post}/>
 ))
 }
 
